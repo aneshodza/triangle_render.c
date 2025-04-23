@@ -15,8 +15,7 @@ typedef struct {
   Point *c;
 } Triangle;
 
-void move_matrix(int x_move, int y_move, int data[RESOLUTION][RESOLUTION]);
+void translate_matrix(Triangle *triangle, Point *point, int reverse);
 void rotate_triangle(Triangle *triangle, float theta);
-
 
 #endif

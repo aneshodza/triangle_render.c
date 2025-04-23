@@ -6,6 +6,8 @@
 #define PIXEL_ON 1
 #define RESOLUTION 500
 #define MAX_STRAIGHT ((RESOLUTION * 3) / 2)
+#define true 1
+#define false 0
 
 #endif
 
