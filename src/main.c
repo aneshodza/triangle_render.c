@@ -6,11 +6,6 @@ int main() {
   Point C = {450, 100};
   int data[RESOLUTION][RESOLUTION] = {0};
 
-  mark_line(A, B, data);
-  mark_line(A, C, data);
-  mark_line(B, C, data);
-  span_filling(data);
-
   SDL_Renderer *renderer;
   SDL_Window *window;
   initialize_sdl(&renderer, &window);
@@ -26,6 +21,18 @@ int main() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
+    memset(data, 0, sizeof(data));
+
+    int x_move = 1;
+    int y_move = 0;
+    move_point(x_move, y_move, RESOLUTION, &A);
+    move_point(x_move, y_move, RESOLUTION, &B);
+    move_point(x_move, y_move, RESOLUTION, &C);
+
+    mark_line(A, B, data);
+    mark_line(A, C, data);
+    mark_line(B, C, data);
+    span_filling(data);
     paint_sql(data, &renderer);
 
     SDL_RenderPresent(renderer);
