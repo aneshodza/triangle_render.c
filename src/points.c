@@ -20,8 +20,8 @@ Point *get_centroid(Triangle *triangle) {
 /*
  * This applies component-wise transformation
  * multiplications:
- * x_new = (x - rot_axis.x) * cos(theta) - (y - rot_axis.x) * sin(theta) + rot_axis
- * y_new = (x - rot_axis) * sin(theta) + (y - rot_axis) * cos(theta) + rot_axis
+ * x_new = x * cos(theta) - y * sin(theta)
+ * y_new = x * sin(theta) + y * cos(theta)
  */
 void rotate_point(Point *point, float theta, Point *center_of_rotation) {
   float x = point->x;
