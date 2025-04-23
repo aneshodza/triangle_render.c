@@ -9,7 +9,7 @@
 #define MAIN_H
 
 void initialize_sdl(SDL_Renderer **renderer, SDL_Window **window);
-void destroy_sql(SDL_Renderer **renderer, SDL_Window **window);
-void paint_sql(int data[RESOLUTION][RESOLUTION], SDL_Renderer **renderer);
+void destroy_sdl(SDL_Renderer **renderer, SDL_Window **window);
+void paint_sdl(int data[RESOLUTION][RESOLUTION], SDL_Renderer **renderer);
 
 #endif

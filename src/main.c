@@ -1,10 +1,11 @@
 #include "../include/main.h"
 
 int main() {
-  Point A = {75, 30};
+  Point A = {0, 0};
   Point B = {300, 250};
   Point C = {450, 100};
-  int data[RESOLUTION][RESOLUTION] = {0};
+
+  Triangle triangle = { &A, &B, &C };
 
   SDL_Renderer *renderer;
   SDL_Window *window;
@@ -21,25 +22,23 @@ int main() {
     SDL_SetRenderDrawColor(renderer, 0, 0, 0, 255);
     SDL_RenderClear(renderer);
 
-    memset(data, 0, sizeof(data));
-
-    int x_move = 1;
-    int y_move = 0;
-    move_point(x_move, y_move, RESOLUTION, &A);
-    move_point(x_move, y_move, RESOLUTION, &B);
-    move_point(x_move, y_move, RESOLUTION, &C);
+    int data[RESOLUTION][RESOLUTION] = {0};
 
     mark_line(A, B, data);
     mark_line(A, C, data);
     mark_line(B, C, data);
     span_filling(data);
-    paint_sql(data, &renderer);
+
+    rotate_triangle(&triangle, 0.01);
+
+    paint_sdl(data, &renderer);
 
     SDL_RenderPresent(renderer);
     SDL_Delay(16);
+    // SDL_Delay(1600);
   }
 
-  destroy_sql(&renderer, &window);
+  destroy_sdl(&renderer, &window);
   return 0;
 }
 
@@ -51,13 +50,13 @@ void initialize_sdl(SDL_Renderer **renderer, SDL_Window **window) {
   *renderer = SDL_CreateRenderer(*window, -1, 0);
 }
 
-void destroy_sql(SDL_Renderer **renderer, SDL_Window **window) {
+void destroy_sdl(SDL_Renderer **renderer, SDL_Window **window) {
   SDL_DestroyRenderer(*renderer);
   SDL_DestroyWindow(*window);
   SDL_Quit();
 }
 
-void paint_sql(int data[RESOLUTION][RESOLUTION], SDL_Renderer **renderer) {
+void paint_sdl(int data[RESOLUTION][RESOLUTION], SDL_Renderer **renderer) {
   for (int y = 0; y < RESOLUTION; y++) {
     for (int x = 0; x < RESOLUTION; x++) {
       if (data[y][x] == PIXEL_ON) {

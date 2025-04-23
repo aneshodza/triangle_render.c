@@ -1,12 +1,22 @@
+#include "constants.h"
+
 #ifndef POINTS_H
 
 #define POINTS_H
 
 typedef struct {
-  int x;
-  int y;
+  float x;
+  float y;
 } Point;
 
-void move_point(int x_move, int y_move, int resolution, Point *A);
+typedef struct {
+  Point *a;
+  Point *b;
+  Point *c;
+} Triangle;
+
+void move_matrix(int x_move, int y_move, int data[RESOLUTION][RESOLUTION]);
+void rotate_triangle(Triangle *triangle, float theta);
+
 
 #endif
