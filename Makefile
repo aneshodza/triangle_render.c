@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
-SDL = -I/opt/homebrew/opt/sdl2/include \
+SDL ?= -I/opt/homebrew/opt/sdl2/include \
 	-L/opt/homebrew/opt/sdl2/lib \
 	-D_THREAD_SAFE -lSDL2
 
