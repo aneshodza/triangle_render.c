@@ -20,6 +20,10 @@ void mark_line(const Point A, const Point B, int data[RESOLUTION][RESOLUTION]) {
   int len = bresenham(A, B, line);
 
   for (int i = 0; i < len; ++i) {
-    data[(int)line[i].x][(int)line[i].y] = PIXEL_ON;
+    int x = fmax(0, fmin(line[i].x, RESOLUTION));
+    int y = fmax(0, fmin(line[i].y, RESOLUTION));
+    if (x == line[i].x && y == line[i].y) {
+      data[x][y] = PIXEL_ON;
+    }
   }
 }

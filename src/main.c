@@ -1,7 +1,7 @@
 #include "../include/main.h"
 
 int main() {
-  Point A = {0, 150};
+  Point A = {-100, 150};
   Point B = {300, 250};
   Point C = {450, 100};
 
@@ -24,9 +24,9 @@ int main() {
 
     int data[RESOLUTION][RESOLUTION] = {0};
 
-    if (is_on_screen(&A) || is_on_screen(&B)) mark_line(A, B, data);
-    if (is_on_screen(&A) || is_on_screen(&C)) mark_line(A, C, data);
-    if (is_on_screen(&B) || is_on_screen(&C)) mark_line(B, C, data);
+    mark_line(A, B, data);
+    mark_line(A, C, data);
+    mark_line(B, C, data);
     span_filling(data);
 
     rotate_triangle(&triangle, 0.01);
