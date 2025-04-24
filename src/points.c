@@ -52,3 +52,10 @@ void rotate_triangle(Triangle *triangle, float theta) {
   free(centroid);
   centroid = NULL;
 }
+
+int is_on_screen(Point* point) {
+    return point->x >= 0 &&
+           point->x < RESOLUTION &&
+           point->y >= 0 &&
+           point->y < RESOLUTION;
+}

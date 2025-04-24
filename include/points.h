@@ -21,5 +21,6 @@ typedef struct {
 
 void translate_matrix(Triangle *triangle, Point *point, int reverse);
 void rotate_triangle(Triangle *triangle, float theta);
+int is_on_screen(Point* point);
 
 #endif
