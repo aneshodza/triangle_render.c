@@ -1,7 +1,7 @@
 #include "../include/main.h"
 
 int main() {
-  Point A = {-50, 150};
+  Point A = {0, 150};
   Point B = {300, 250};
   Point C = {450, 100};
 
