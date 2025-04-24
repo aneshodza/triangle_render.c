@@ -1,5 +1,9 @@
 #include "constants.h"
 
+#include <math.h>
+#include <stdio.h>
+#include <stdlib.h>
+
 #ifndef POINTS_H
 
 #define POINTS_H

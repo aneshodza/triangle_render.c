@@ -1,7 +1,4 @@
 #include "../include/points.h"
-#include <math.h>
-#include <stdio.h>
-#include <stdlib.h>
 
 void translate_matrix(Triangle *triangle, Point *point, int reverse) {
   float dx = reverse ? -point->x : point->x;
