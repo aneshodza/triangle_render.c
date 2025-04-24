@@ -58,7 +58,7 @@ void destroy_sdl(SDL_Renderer **renderer, SDL_Window **window) {
 void paint_sdl(int data[RESOLUTION][RESOLUTION], SDL_Renderer **renderer) {
   for (int y = 0; y < RESOLUTION; y++) {
     for (int x = 0; x < RESOLUTION; x++) {
-      if (data[y][x] == PIXEL_ON) {
+      if (data[x][y] == PIXEL_ON) {
         light(*renderer, x, y);
       } else {
         dark(*renderer, x, y);
